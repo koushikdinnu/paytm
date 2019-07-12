@@ -1,33 +1,40 @@
-package bean;
+package com.capg.wallet.bean;
 
 public class Account {
-	private String name;
-	private long phoneNumber;
-	private String emailId;
-	private int balance;
+	private String Name;
+	private long PhoneNumber;
+	private String EmailId;
+	private int Balance;
 	public String getName() {
-		return name;
+		return Name;
 	}
 	public void setName(String name) {
-		this.name = name;
+		Name = name;
 	}
 	public long getPhoneNumber() {
-		return phoneNumber;
+		return PhoneNumber;
 	}
 	public void setPhoneNumber(long phoneNumber) {
-		this.phoneNumber = phoneNumber;
+		PhoneNumber = phoneNumber;
 	}
-	public String getEmailid() {
-		return emailId;
+	public String getEmailId() {
+		return EmailId;
 	}
-	public void setEmailid(String emailid) {
-		this.emailId = emailid;//////////////
+	public void setEmailId(String emailId) {
+		EmailId = emailId;
 	}
 	public int getBalance() {
-		return balance;
+		return Balance;
 	}
 	public void setBalance(int balance) {
-		this.balance = balance;
+		Balance = balance;
 	}
+	@Override
+	public String toString() {
+		return "Account [Name=" + Name + ", PhoneNumber=" + PhoneNumber + ", EmailId=" + EmailId + ", Balance="
+				+ Balance + "]";
+	}
+	
+	
 
 }

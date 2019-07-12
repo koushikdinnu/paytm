@@ -1,86 +1,58 @@
-package Service;
-
+package com.capg.wallet.service;
 
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
-import Exceptions.*;
-import bean.Account;
-import dao.*;
-public class AccountServiceImpl extends Validator implements AccountService{
-	AccountDao dao=new AccountDaoImpl();
-	Validator v=new Validator();
-	@Override
-	public String createAccountDao(Account user) throws  IncorrectDetailsException, InvalidMailException, InvalidPhoneNumberException{
-		// TODO Auto-generated method stub
-		String AccountNumber=null;
-		try 
-		{
-			v.validator(user);
-			Random rand=new Random();
-			int num=rand.nextInt(9000000)+1000000;
-			 AccountNumber=String.valueOf(num);
-			dao.createAccountDao(AccountNumber, user);
-		}
-		catch(Exception e)
-		{
-			throw e;
-		}
-		return AccountNumber;
+
+import com.capg.wallet.bean.Account;
+import com.capg.wallet.dao.AccountDao;
+import com.capg.wallet.dao.AccountDaoImpl;
+
+public class AccountServiceImpl extends Validator implements AccountService {
+	AccountDaoImpl dao=new AccountDaoImpl();
+	Validator validator=new Validator();
+	public String createAccount(account AccountNumber); 
+	String AccountNumber=null;
+	try
+	{
+		validator.Validator(account);
+		Random rand=new Random();//dd
+		int num= rand.nextInt(100)+10000000;
+		AccountNumber=String.valueOf(num);
+		dao.createAccount(AccountNumber, account);
 		
+	} catch (Exception e) {
+		throw e;
 	}
+	return AccountNumber;
+}
+public void addMoney(String AccountNumber, Integer money);
+try {
+	dao.addMoney(AccountNumber, Money);
+} catch (Exception e) {
+	throw e;
+}
+public void viewAccount(String AccountNumber);
+try {
+	dao.viewAccount(AccountNumber);
+} catch(Eexception e) {
+	throw e;
+}
+public void transferMoney(String AccountNumber, String RecieverAccountNumber,Integer TransferAmount  );
+try {
+	dao.transferMoney(AccountNumber,  RecieverAccountNumber, TransferAmount  );
+} catch (Exception e) {
+	throw e;
+}
+public  HashMap<String, Account> getAllAccounts();
+try {
+	return dao.getAllAccounts();
+} catch (Exception e) {
+	throw e;
+}
 
+	
+	
 
-	@Override
-	public Account viewAccount(String AccountNumber) throws AccountNotFoundException{
-
-		try
-		{
-			return dao.viewAccount(AccountNumber);
-		}
-		catch(Exception e)
-		{
-			throw e;
-		}
-	}
-
-	@Override
-	public void addMoney(String AccountNumber, int Amount) throws AccountNotFoundException {
-		// TODO Auto-generated method stub
-		try
-		{
-			dao.addMoney(AccountNumber, Amount);
-		}
-		catch(Exception e)
-		{
-			throw e;
-		}
-		
-	}
-
-	@Override
-	public void transfer(String AccountNumber1, String AccountNumber2, int Amount) throws InsuffecientBalanceException,AccountNotFoundException {
-		// TODO Auto-generated method stub
-		try {
-			dao.transfer(AccountNumber1, AccountNumber2, Amount);
-			}
-		catch(Exception e)
-		{
-			throw e;
-		}
-		
-	}
-
-
-	@Override
-	public HashMap<String, Account> getAllAccounts() {
-		// TODO Auto-generated method stub
-		try {
-			return dao.getAllAccounts();
-		}
-		catch(Exception e)
-		{
-			throw e;
-		}
-	}
 
 }

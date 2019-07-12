@@ -1,14 +1,13 @@
-package Service;
+package com.capg.wallet.service;
 
 import java.util.HashMap;
 
-import Exceptions.*;
-import bean.Account;
+import com.capg.wallet.bean.Account;
 
 public interface AccountService {
-	public String createAccountDao(Account user) throws IncorrectDetailsException, InvalidMailException, InvalidPhoneNumberException;
-	public Account viewAccount(String AccountNumber) throws AccountNotFoundException;
-	public void addMoney(String AccountNumber, int Amount) throws AccountNotFoundException;
-	public void transfer(String AccountNumber1,String AccountNumber2, int Amount) throws InsuffecientBalanceException, AccountNotFoundException;
-	public HashMap<String, Account> getAllAccounts();
-}
+	public String createAccount(account AccountNumber); 
+	public void addMoney(String AccountNumber, Integer money);
+	public void viewAccount(String AccountNumber);
+	public void transferMoney(String AccountNumber, String RecieverAccountNumber,Integer TransferAmount  );
+	public  HashMap<String, Account> getAllAccounts();
+	}
